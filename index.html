@@ -11,13 +11,15 @@
 <h1>СТОП рос-пропаганда</h1>
 <div class="title"><span style="color: red">*</span>Сайт з рос-пропагандой</div>
 <input type="text" id="targetURL" />
-<div class="title">Запросiв в секунду</div>
+<div class="title">Кiлькiсть запросiв у секунду</div>
 <input type="text" id="rps" value="10" /><br/>
 <button id="fireButton" style="height: 60px; font-size: 14px">Почати</button>
 <div style="color: #8cbc26">Кiлькiсть запросiв</div>
 <div style="font-size: 40px; margin-bottom: 20px" id="succeededCtr">0</div>
 
-<div style="font-size: 14px;"><strong>Чим нас бiльше - тим яскравiще ефект. Розповiдайте друзям!!!</strong></div>
+<div style="font-size: 14px; margin-bottom: 10px;"><strong>Бажано вiдкривати по декiлька вкладинок за для збiльщення навантаження</strong></div>
+
+<div style="font-size: 20px; margin-bottom: 20px;"><strong>Чим нас бiльше - тим яскравiще ефект. Розповiдайте друзям!!!</strong></div>
 <div>
 
 <span class='st_vkontakte_vcount' displayText='Vkontakte'></span>
@@ -31,7 +33,6 @@
 <span class='st__vcount' displayText=''></span>
 	
 </div>
-
 
 
 <script>
@@ -60,6 +61,32 @@ document.getElementById("fireButton").onclick = function () {
 		);
 	}
 };
+
+var queryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    	// If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+    	// If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+    	// If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+
+document.getElementById("targetURL").value = queryString.target;
+
 </script>
 </body>
 </html>
