@@ -85,7 +85,11 @@ var queryString = function () {
     return query_string;
 } ();
 
-document.getElementById("targetURL").value = queryString.target;
+var target = queryString.target;
+if (target)
+{
+	document.getElementById("targetURL").value = target;
+}
 
 </script>
 </body>
