@@ -1,2 +1,0 @@
-EuroMaydan.github.io
-====================
