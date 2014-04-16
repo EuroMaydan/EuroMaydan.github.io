@@ -8,16 +8,16 @@
 
 </head>
 <body style="font-family: Helvetica; font-size: 16px; text-align: center">
-<h1>Mobile LOIC</h1>
-<div class="title"><span style="color: red">*</span>Target URL</div>
+<h1>СТОП рос-пропаганда</h1>
+<div class="title"><span style="color: red">*</span>Сайт з рос-пропагандой</div>
 <input type="text" id="targetURL" />
-<div class="title">Requests per Second</div>
+<div class="title">Запросiв в секунду</div>
 <input type="text" id="rps" value="10" /><br/>
-<button id="fireButton" style="height: 60px; font-size: 14px">IMMA CHARGIN MAH LAZER</button>
-<div style="color: #8cbc26">Requests Sent</div>
+<button id="fireButton" style="height: 60px; font-size: 14px">Почати</button>
+<div style="color: #8cbc26">Кiлькiсть запросiв</div>
 <div style="font-size: 40px; margin-bottom: 20px" id="succeededCtr">0</div>
 
-<div style="font-size: 14px;"></div>
+<div style="font-size: 14px;"><strong>Чим нас бiльше - тим яскравiще ефект. Розповiдайте друзям!!!</strong></div>
 <div>
 
 <span class='st_vkontakte_vcount' displayText='Vkontakte'></span>
@@ -42,11 +42,11 @@ document.getElementById("fireButton").onclick = function () {
 	if (isFiring) {
 		clearInterval(fireInterval);
 		isFiring = false;
-		this.innerHTML = "IMMA CHARGIN MAH LAZER";
+		this.innerHTML = "Почати";
 	}
 	else {
 		isFiring = true;
-		this.innerHTML = "STOP TEH FLOODING";
+		this.innerHTML = "Припинити";
 		fireInterval = setInterval(
 			function () {
 				var img = new Image();
