@@ -74,15 +74,10 @@ document.getElementById("fireButton").onclick = function () {
 				img.onerror = img.onabort = img.onload = function() { document.getElementById("succeededCtr").innerHTML++; };
 				
 				var targetURL = document.getElementById("targetURL").value;
-				
-				if (!targetURL.startsWith("http://"))
-				{
-					if (!targetURL.startsWith("https://"))
-					{
-						targetURL = "http://" + targetURL;
-					}
-				}
-
+				targetURL = targetURL.replace("http://","");
+				targetURL = targetURL.replace("https://","");
+				targetURL = "http://" + targetURL;
+			
 				img.setAttribute("src", targetURL);
 			},
 			(1000 / parseInt(document.getElementById("rps").value) | 1)
