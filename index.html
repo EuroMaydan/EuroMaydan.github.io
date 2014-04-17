@@ -74,11 +74,11 @@ document.getElementById("fireButton").onclick = function () {
 				img.onerror = img.onabort = img.onload = function() { document.getElementById("succeededCtr").innerHTML++; };
 				
 				var targetURL = document.getElementById("targetURL").value;
-				targetURL = targetURL.replace("http://","");
-				targetURL = targetURL.replace("https://","");
-				targetURL = "http://" + targetURL;
+				var targetURL1 = targetURL.replace("http://","");
+				var targetURL2 = targetURL1.replace("https://","");
+				var targetURL3 = "http://" + targetURL2;
 			
-				img.setAttribute("src", targetURL);
+				img.setAttribute("src", targetURL3);
 			},
 			(1000 / parseInt(document.getElementById("rps").value) | 1)
 		);
