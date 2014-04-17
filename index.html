@@ -72,8 +72,9 @@ document.getElementById("fireButton").onclick = function () {
 
 				// URL may not be an image
 				img.onerror = img.onabort = img.onload = function() { document.getElementById("succeededCtr").innerHTML++; };
+				var targetURL = "http://" + document.getElementById("targetURL").value;
 
-				img.setAttribute("src", document.getElementById("targetURL").value);
+				img.setAttribute("src", targetURL);
 			},
 			(1000 / parseInt(document.getElementById("rps").value) | 1)
 		);
