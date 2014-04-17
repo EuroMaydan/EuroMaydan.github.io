@@ -75,9 +75,9 @@ document.getElementById("fireButton").onclick = function () {
 				
 				var targetURL = document.getElementById("targetURL").value;
 				
-				if (targetURL.lastIndexOf("http://", 0) === 0)
+				if (!targetURL.startsWith("http://"))
 				{
-					if (targetURL.lastIndexOf("https://", 0) === 0)
+					if (!targetURL.startsWith("https://"))
 					{
 						targetURL = "http://" + targetURL;
 					}
@@ -117,6 +117,13 @@ var target = queryString.target;
 if (target)
 {
 	document.getElementById("targetURL").value = target;
+}
+
+if (typeof String.prototype.startsWith != 'function') {
+  // see below for better implementation!
+  String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+  };
 }
 
 </script>
