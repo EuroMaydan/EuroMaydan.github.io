@@ -72,7 +72,16 @@ document.getElementById("fireButton").onclick = function () {
 
 				// URL may not be an image
 				img.onerror = img.onabort = img.onload = function() { document.getElementById("succeededCtr").innerHTML++; };
-				var targetURL = "http://" + document.getElementById("targetURL").value;
+				
+				var targetURL = document.getElementById("targetURL").value;
+				
+				if (targetURL.lastIndexOf("http://", 0) === 0)
+				{
+					if (targetURL.lastIndexOf("https://", 0) === 0)
+					{
+						targetURL = "http://" + targetURL;
+					}
+				}
 
 				img.setAttribute("src", targetURL);
 			},
